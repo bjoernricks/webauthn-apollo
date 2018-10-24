@@ -56,6 +56,8 @@ server.applyMiddleware({app});
 
 // This `listen` method launches a web-server.  Existing apps
 // can utilize middleware options, which we'll discuss later.
-app.listen(3000, () => {
-  console.log(`🚀  Server ready`);
+const PORT = 4000;
+
+app.listen(4000, () => {
+  console.log(`🚀  Server ready at http://localhost:${PORT}${server.graphqlPath}`);
 });
