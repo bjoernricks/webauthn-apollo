@@ -1,0 +1,16 @@
+{
+  "name": "webauthn-apollo",
+  "version": "1.0.0",
+  "description": "Webauthn with Apollo GraphQL Server",
+  "main": "index.js",
+  "repository": "git@github.com:bjoernricks/webauthn-apollo.git",
+  "author": "Björn Ricks <bjoern.ricks@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server": "^2.1.0",
+    "graphql": "^14.0.2"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
