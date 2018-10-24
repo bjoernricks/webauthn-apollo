@@ -1,4 +1,5 @@
-const {ApolloServer, gql} = require('apollo-server');
+const express = require('express');
+const {ApolloServer, gql} = require('apollo-server-express');
 
 // This is a (sample) collection of books we'll be able to query
 // the GraphQL server for.  A more complete example might fetch
@@ -40,13 +41,21 @@ const resolvers = {
   },
 };
 
+const app = express();
+
+app.get('/', function (req, res) {
+  res.send('Hello World!')
+})
+
 // In the most basic sense, the ApolloServer can be started
 // by passing type definitions (typeDefs) and the resolvers
 // responsible for fetching the data for those types.
 const server = new ApolloServer({typeDefs, resolvers});
 
+server.applyMiddleware({app});
+
 // This `listen` method launches a web-server.  Existing apps
 // can utilize middleware options, which we'll discuss later.
-server.listen().then(({url}) => {
-  console.log(`🚀  Server ready at ${url}`);
+app.listen(3000, () => {
+  console.log(`🚀  Server ready`);
 });
